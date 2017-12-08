@@ -10,6 +10,7 @@
 #endif
 
 #ifndef LOG
+#include <android/log.h>
 #define LOG(FORMAT, MSG) __android_log_print(ANDROID_LOG_INFO,"chenlong",(FORMAT),(MSG))
 #endif
 

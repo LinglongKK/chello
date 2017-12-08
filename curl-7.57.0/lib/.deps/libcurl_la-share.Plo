@@ -1,0 +1,396 @@
+libcurl_la-share.lo: share.c ../lib/curl_setup.h ../lib/curl_config.h \
+  ../include/curl/curl.h ../include/curl/curlver.h \
+  ../include/curl/system.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/types.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stddef.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdint.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdint.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/wchar_limits.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/cdefs.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/api-level.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/versioning.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/int-ll64.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/bitsperlong.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/bitsperlong.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/posix_types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/stddef.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/compiler.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/posix_types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/posix_types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/pthread_types.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/socket.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/socket.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/fcntl.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/fcntl.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/socket.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/socket.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/sockios.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/sockios.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/sockios.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/uio.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/sa_family_t.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdio.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdarg.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/seek_constants.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/struct_file.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/limits.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/limits.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/float.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/limits.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/posix_limits.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/time.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/time.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/time.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/select.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/signal.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/sigcontext.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/timespec.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/signal.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/signal.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/signal-defs.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/siginfo.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/siginfo.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/ucontext.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/user.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_signal_inlines.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/errno.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/errno.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/errno.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/errno.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/errno-base.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_errno_inlines.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/string.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/xlocale.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/strcasecmp.h \
+  ../include/curl/easy.h ../include/curl/multi.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/assert.h \
+  ../lib/curl_setup_once.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdlib.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/alloca.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/malloc.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_stdlib_inlines.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/ctype.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/stat.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/stat.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_sys_stat_inlines.h \
+  /home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdbool.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/unistd.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/fcntl.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/getopt.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/ioctl.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/lockf.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/sysconf.h \
+  ../lib/urldata.h ../lib/cookie.h ../lib/formdata.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netinet/in.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/endian.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/endian.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netinet/in6.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/in6.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/libc-compat.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/in.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/byteorder.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/byteorder/little_endian.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/swab.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/swab.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/ipv6.h \
+  ../lib/timeval.h ../lib/http_chunks.h ../lib/hostip.h ../lib/hash.h \
+  ../lib/llist.h ../lib/curl_addrinfo.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netdb.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/arpa/inet.h \
+  ../lib/asyn.h \
+  /home/chenlong/toolchains_r16/bin/../sysroot/usr/include/setjmp.h \
+  ../lib/splay.h ../lib/mime.h ../lib/imap.h ../lib/pingpong.h \
+  ../lib/curl_sasl.h ../lib/pop3.h ../lib/smtp.h ../lib/ftp.h \
+  ../lib/file.h ../lib/ssh.h ../lib/http.h ../lib/rtsp.h ../lib/smb.h \
+  ../lib/wildcard.h ../lib/multihandle.h ../lib/conncache.h \
+  ../lib/share.h ../lib/vtls/vtls.h ../lib/vtls/openssl.h \
+  ../lib/vtls/gtls.h ../lib/vtls/nssg.h ../lib/vtls/gskit.h \
+  ../lib/vtls/polarssl.h ../lib/vtls/axtls.h ../lib/vtls/cyassl.h \
+  ../lib/vtls/schannel.h ../lib/vtls/darwinssl.h ../lib/vtls/mbedtls.h \
+  ../lib/curl_memory.h ../lib/memdebug.h
+
+../lib/curl_setup.h:
+
+../lib/curl_config.h:
+
+../include/curl/curl.h:
+
+../include/curl/curlver.h:
+
+../include/curl/system.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/types.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stddef.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdint.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdint.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/wchar_limits.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/cdefs.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/api-level.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/versioning.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/int-ll64.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/bitsperlong.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/bitsperlong.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/posix_types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/stddef.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/compiler.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/posix_types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/posix_types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/pthread_types.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/socket.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/socket.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/fcntl.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/fcntl.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/socket.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/socket.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/sockios.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/sockios.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/sockios.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/uio.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/sa_family_t.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdio.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdarg.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/seek_constants.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/struct_file.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/limits.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/limits.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/float.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/limits.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/posix_limits.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/time.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/time.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/time.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/select.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/signal.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/sigcontext.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/timespec.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/signal.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/signal.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/signal-defs.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/siginfo.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/siginfo.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/ucontext.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/user.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_signal_inlines.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/errno.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/errno.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/errno.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/errno.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm-generic/errno-base.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_errno_inlines.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/string.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/xlocale.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/strcasecmp.h:
+
+../include/curl/easy.h:
+
+../include/curl/multi.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/assert.h:
+
+../lib/curl_setup_once.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/stdlib.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/alloca.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/malloc.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_stdlib_inlines.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/ctype.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/stat.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/stat.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/android/legacy_sys_stat_inlines.h:
+
+/home/chenlong/toolchains_r16/lib64/clang/5.0.300080/include/stdbool.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/unistd.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/fcntl.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/getopt.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/ioctl.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/lockf.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/bits/sysconf.h:
+
+../lib/urldata.h:
+
+../lib/cookie.h:
+
+../lib/formdata.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netinet/in.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/endian.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/sys/endian.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netinet/in6.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/in6.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/libc-compat.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/in.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/byteorder.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/byteorder/little_endian.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/swab.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/asm/swab.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/linux/ipv6.h:
+
+../lib/timeval.h:
+
+../lib/http_chunks.h:
+
+../lib/hostip.h:
+
+../lib/hash.h:
+
+../lib/llist.h:
+
+../lib/curl_addrinfo.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/netdb.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/arpa/inet.h:
+
+../lib/asyn.h:
+
+/home/chenlong/toolchains_r16/bin/../sysroot/usr/include/setjmp.h:
+
+../lib/splay.h:
+
+../lib/mime.h:
+
+../lib/imap.h:
+
+../lib/pingpong.h:
+
+../lib/curl_sasl.h:
+
+../lib/pop3.h:
+
+../lib/smtp.h:
+
+../lib/ftp.h:
+
+../lib/file.h:
+
+../lib/ssh.h:
+
+../lib/http.h:
+
+../lib/rtsp.h:
+
+../lib/smb.h:
+
+../lib/wildcard.h:
+
+../lib/multihandle.h:
+
+../lib/conncache.h:
+
+../lib/share.h:
+
+../lib/vtls/vtls.h:
+
+../lib/vtls/openssl.h:
+
+../lib/vtls/gtls.h:
+
+../lib/vtls/nssg.h:
+
+../lib/vtls/gskit.h:
+
+../lib/vtls/polarssl.h:
+
+../lib/vtls/axtls.h:
+
+../lib/vtls/cyassl.h:
+
+../lib/vtls/schannel.h:
+
+../lib/vtls/darwinssl.h:
+
+../lib/vtls/mbedtls.h:
+
+../lib/curl_memory.h:
+
+../lib/memdebug.h:

@@ -26,15 +26,18 @@ static const JNINativeMethod gRegisterMethod[] = {
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     LOG("%s", "jni_onload");
-    JNIEnv *env = NULL;
+    JNIEnv *env;
     //获取env
     if ((*vm)->GetEnv(vm, (void **) &env, JNI_VERSION_1_4) != JNI_OK) {
         return JNI_ERR;
     }
-    jclass clazz = (*env)->FindClass(env, JAVA_CLASS_NAME);
-    if (clazz == NULL) {
+
+    jclass clazz;
+    if((clazz = (*env)->FindClass(env,JAVA_CLASS_NAME)) == NULL) {
+        LOG("%s is NULL",JAVA_CLASS_NAME);
         return JNI_ERR;
     }
+
     jint rs = (*env)->RegisterNatives(env, clazz, gRegisterMethod, NELEM(gRegisterMethod));
     if (rs < 0) return JNI_ERR;
     return JNI_VERSION_1_4;
@@ -55,11 +58,21 @@ void log_native(JNIEnv* env,jclass class,jstring format,jstring msg) {
 
 void set_instance(JNIEnv* env,jobject obj) {
     LOG("%p",obj);
+    jclass clz = (*env)->FindClass(env,"com/not/found/class");
+    if((*env)->ExceptionCheck(env)) {
+        (*env)->ExceptionDescribe(env);
+        (*env)->ExceptionClear(env);
+        (*env)->ThrowNew(env,(*env)->FindClass(env,"cck/com/chello/JNIException"),"JNI error!!!!");
+        return ;
+    }
+
 }
 
 jint get_int_value(JNIEnv *env, jobject thiz, jint a) {
     LOG("%d", a);
-    return a + 10;
+    jint version = (*env)->GetVersion(env);
+    LOG("%X",version);
+    return version;
 }
 
 jboolean get_boolean_value(JNIEnv *env, jobject thiz, jboolean b) {
