@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
     <Button
         android:id="@+id/click"
-        android:text="click"
+        android:text="getJavaCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/watcher"
-        android:text="init js engine"
+        android:text="Call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <EditText
@@ -20,7 +20,7 @@
         android:layout_height="160dp" />
     <Button
         android:id="@+id/run_js"
-        android:text="执行js"
+        android:text="free_Native_Ref"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button

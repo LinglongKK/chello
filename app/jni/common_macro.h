@@ -12,6 +12,7 @@
 #ifndef LOG
 #include <android/log.h>
 #define LOG(FORMAT, MSG) __android_log_print(ANDROID_LOG_INFO,"chenlong",(FORMAT),(MSG))
+#define LOG_INFO(MSG) __android_log_print(ANDROID_LOG_INFO,"chenlong","%s",(MSG))
 #endif
 
 #endif //CHELLO_COMMON_MACRO_H

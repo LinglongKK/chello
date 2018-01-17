@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/begin"
+            android:text="开始"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--<cck.com.chello.WaveView-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp" />-->
+        <cck.com.chello.LikeView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/target"
+        android:background="@drawable/circle"
+        android:layout_width="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_height="30dp" />
+
+    <ImageView
+        android:id="@+id/car"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/car"
+        android:layout_width="50dp"
+        android:layout_height="20dp" />
+    <cck.com.chello.InterceptorView
+        android:id="@+id/intercptor_view"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/target"
+        android:visibility="gone"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+</RelativeLayout>

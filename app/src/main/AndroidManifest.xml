@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cck.com.chello">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
+        android:name=".SimpleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,26 +14,26 @@
         android:supportsRtl="true"
 
         >
+        <activity android:label="多进程Sp" android:name=".MainActivity" />
+        <activity android:label="native进程" android:name=".ProcessActivity"/>
+        <activity android:label="物理动画" android:name=".PhysicsAnimationActivity"/>
+        <activity android:label="属性动画" android:name=".AnimationActivity"/>
+        <activity android:label="下拉刷新" android:name=".PullRefreshActivity"/>
         <activity
-            android:exported="true"
-            android:name=".MainActivity"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:enabled="false"
             android:name=".LauncherActivity"
-            android:label="测试图标"
+            android:label="^好好学习^"
             android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="cck.com.chello.multisp.provider"
+            android:name=".MultiProcessSp"/>
     </application>
 
 </manifest>

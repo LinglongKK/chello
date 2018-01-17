@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "cck.com.chello"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,7 @@ android {
         release {
             multiDexEnabled false
             minifyEnabled false
+            debuggable
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -27,21 +28,47 @@ android {
             minifyEnabled false
         }
     }
+
     externalNativeBuild {
         ndkBuild {
             path "jni/Android.mk"
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile "com.android.support:support-dynamic-animation:27.0.2"
+    compile "com.android.support:support-compat:27.0.2"
     testCompile 'junit:junit:4.12'
 }
 
+afterEvaluate { project ->
+    android.applicationVariants.forEach { variant->
+        String buildType = variant.buildType.name
+        String assetsPath = variant.sourceSets.get(0).assetsDirectories[0].path
+        project.tasks.forEach { task ->
+            if(task.name.equalsIgnoreCase("externalNativeBuild${buildType}") ){
+                task.doLast {
+                    println "copy process_ex to assets"
+                    copy {
+                        from "${project.buildDir.path}/intermediates/ndkBuild/${buildType.toLowerCase()}/obj/local/armeabi-v7a/process_ex"
+                        into  "${project.buildDir.path}/intermediates/assets/${buildType.toLowerCase()}"
+                    }
+                }
+            }
+        }
+    }
+
+}
 
 
 
