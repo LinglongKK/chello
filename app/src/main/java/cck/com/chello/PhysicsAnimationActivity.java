@@ -26,7 +26,12 @@ public class PhysicsAnimationActivity extends Activity{
         setContentView(R.layout.physics_animation_activity_layout);
         mBallView = findViewById(R.id.ball);
         mGoBtn = findViewById(R.id.click);
-        mGoBtn.setOnClickListener(this::onClickGoBtn);
+        mGoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickGoBtn(v);
+            }
+        });
         mBallView.setOnTouchListener(new View.OnTouchListener() {
            private float downX;
            private float downY;

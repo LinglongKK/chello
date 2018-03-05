@@ -7,7 +7,12 @@ import android.util.Log;
  */
 
 public class LogV {
+    private static final String TAG = "chenlong";
     public static void d(String msg) {
-        Log.d("chenlong",msg);
+        Log.d(TAG, msg);
+    }
+
+    public static void e(Throwable e) {
+        Log.d(TAG,e.getMessage());
     }
 }

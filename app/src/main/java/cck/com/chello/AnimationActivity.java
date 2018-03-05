@@ -45,7 +45,12 @@ public class AnimationActivity extends Activity{
         setContentView(R.layout.animation_activity_layout);
         target = findViewById(R.id.target);
         car = findViewById(R.id.car);
-        findViewById(R.id.begin).setOnClickListener(this::test3);
+        findViewById(R.id.begin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test3(v);
+            }
+        });
         maskView = new MaskView(this);
         interceptorView = findViewById(R.id.intercptor_view);
 //        interceptorView.setInterpolator(new AnticipateInterpolator(0.5f));
@@ -63,8 +68,8 @@ public class AnimationActivity extends Activity{
 
 
     private void startAnimation() {
-        int[] targetPos = new int[2];
-        int[] carPos = new int[2];
+        final int[] targetPos = new int[2];
+        final int[] carPos = new int[2];
         target.getLocationOnScreen(targetPos);
         car.getLocationOnScreen(carPos);
         path.rewind();
@@ -75,16 +80,19 @@ public class AnimationActivity extends Activity{
         pathMeasure.setPath(path,false);
         viewAnimator = ObjectAnimator.ofInt(0,1);
         viewAnimator.setDuration(4000);
-        viewAnimator.addUpdateListener(valueAnimator -> {
-            float distance = valueAnimator.getAnimatedFraction() * pathMeasure.getLength();
-            float[] pos = new float[2];
-            pathMeasure.getPosTan(distance,pos,null);
-            LogV.d("x:"+pos[0]+",y:"+pos[1]);
-            float diffX = pos[0]-targetPos[0];
-            float diffY = pos[1]-targetPos[1];
-            target.setTranslationX(diffX);
-            target.setTranslationY(diffY);
-            maskView.setCircleXY(pos[0],pos[1]);
+        viewAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float distance = animation.getAnimatedFraction() * pathMeasure.getLength();
+                float[] pos = new float[2];
+                pathMeasure.getPosTan(distance,pos,null);
+                LogV.d("x:"+pos[0]+",y:"+pos[1]);
+                float diffX = pos[0]-targetPos[0];
+                float diffY = pos[1]-targetPos[1];
+                target.setTranslationX(diffX);
+                target.setTranslationY(diffY);
+                maskView.setCircleXY(pos[0],pos[1]);
+            }
         });
         viewAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -115,10 +123,10 @@ public class AnimationActivity extends Activity{
     }
 
     private void test2(View v) {
-        int x = (int)target.getX();
-        int y = (int)target.getY();
+        final int x = (int)target.getX();
+        final int y = (int)target.getY();
 
-        ValueAnimator objectAnimator = ObjectAnimator.ofObject(
+        final ValueAnimator objectAnimator = ObjectAnimator.ofObject(
                 null,
                 new Point(x,y),
                 new Point(351,636),

@@ -18,6 +18,8 @@ public class LauncherActivity extends Activity {
             new Object[] {"属性动画",AnimationActivity.class},
             new Object[] {"物理动画",PhysicsAnimationActivity.class},
             new Object[] {"下拉刷新",PullRefreshActivity.class},
+            new Object[] {"HotFix",AndFixActivity.class},
+            new Object[] {"ButterKnife",AnnotationActivity.class},
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {

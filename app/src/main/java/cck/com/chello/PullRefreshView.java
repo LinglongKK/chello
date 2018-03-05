@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
@@ -39,6 +40,8 @@ public class PullRefreshView extends LinearLayout {
     private int mFinalHeaderHeight;
     private float mLastX;
     private float mLastY;
+    private boolean mHasMoveFlag = false;
+    private MotionEvent mLastMoveEvent;
     private Direction mDirection;
     private State mState = State.IDLE;
 
@@ -82,6 +85,7 @@ public class PullRefreshView extends LinearLayout {
         this.mRefreshListener = listener;
     }
 
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         LogV.d("dispatchTouchEvent:"+MotionEvent.actionToString(ev.getAction()));
@@ -89,8 +93,11 @@ public class PullRefreshView extends LinearLayout {
             case MotionEvent.ACTION_DOWN:
                 mLastX = ev.getX();
                 mLastY = ev.getY();
-                break;
+                mHasMoveFlag = false;
+                super.dispatchTouchEvent(ev);
+                return true;
             case MotionEvent.ACTION_MOVE:
+                mLastMoveEvent = ev;
                 float diffX = ev.getX() - mLastX;
                 float diffY = ev.getY() - mLastY;
                 mDirection = diffY > 0 ? Direction.DOWN :Direction.UP;
@@ -100,6 +107,7 @@ public class PullRefreshView extends LinearLayout {
                 if(Math.abs(diffY) <= Math.abs(diffX)) return super.dispatchTouchEvent(ev);
                 if(!mListView.canScrollList(-(int)diffY) || shouldIntercept()) {
                     LogV.d("dispatch move");
+                    mHasMoveFlag = true;
                     moveY(diffY);
                     return true;
                 }
@@ -107,6 +115,10 @@ public class PullRefreshView extends LinearLayout {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 release(false);
+                if(mHasMoveFlag){
+                    sendCancelEvent();
+                    return true;
+                }
                 break;
         }
         return super.dispatchTouchEvent(ev);
@@ -140,7 +152,7 @@ public class PullRefreshView extends LinearLayout {
         }else{
             mState = State.REFRESHING;
         }
-        ValueAnimator objectAnimator = ObjectAnimator.ofFloat(height,finalY);
+        final ValueAnimator objectAnimator = ObjectAnimator.ofFloat(height,finalY);
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.setDuration(100L);
         objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -165,6 +177,21 @@ public class PullRefreshView extends LinearLayout {
             }
         });
         objectAnimator.start();
+    }
+
+    private boolean dispatchTouchEventSupper(MotionEvent event) {
+        return super.dispatchTouchEvent(event);
+    }
+
+    private void sendCancelEvent() {
+        // The ScrollChecker will update position and lead to send cancel event when mLastMoveEvent is null.
+        // fix #104, #80, #92
+        if (mLastMoveEvent == null) {
+            return;
+        }
+        MotionEvent last = mLastMoveEvent;
+        MotionEvent e = MotionEvent.obtain(last.getDownTime(), last.getEventTime() + ViewConfiguration.getLongPressTimeout(), MotionEvent.ACTION_CANCEL, last.getX(), last.getY(), last.getMetaState());
+        dispatchTouchEventSupper(e);
     }
 
     static void logMotionEvent(MotionEvent event) {

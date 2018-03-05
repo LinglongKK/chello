@@ -47,3 +47,10 @@ LOCAL_LDLIBS += -llog
 LOCAL_CFLAGS += -fPIE -fPIC
 LOCAL_LDFLAGS += -pie
 include $(BUILD_EXECUTABLE)
+
+#andfix
+include $(CLEAR_VARS)
+LOCAL_MODULE := hotfix
+LOCAL_SRC_FILES := hotfix/andfix.c
+LOCAL_LDLIBS += -llog
+include $(BUILD_SHARED_LIBRARY)

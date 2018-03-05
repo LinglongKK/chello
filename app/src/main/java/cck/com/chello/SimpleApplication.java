@@ -11,7 +11,7 @@ public class SimpleApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        HttpTest.init("http://k-api.360kan.com/");
+
     }
 
     @Override

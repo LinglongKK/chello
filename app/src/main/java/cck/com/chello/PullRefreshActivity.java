@@ -6,9 +6,11 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,13 +34,22 @@ public class PullRefreshActivity extends Activity{
         mPullRefreshView = findViewById(R.id.pull_refresh);
         mListView = mPullRefreshView.getListView();
         mListView.setAdapter(new StrAdapter());
-        mPullRefreshView.setPullRefreshListener(()->{
-            mHandle.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mPullRefreshView.refreshFinish();
-                }
-            },TimeUnit.SECONDS.toMillis(2));
+        mPullRefreshView.setPullRefreshListener(new PullRefreshView.IPullRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mHandle.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPullRefreshView.refreshFinish();
+                    }
+                },TimeUnit.SECONDS.toMillis(2));
+            }
+        });
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(view.getContext(),"click list",Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

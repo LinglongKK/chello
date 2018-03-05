@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:name=".SimpleApplication"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,6 +19,8 @@
         <activity android:label="物理动画" android:name=".PhysicsAnimationActivity"/>
         <activity android:label="属性动画" android:name=".AnimationActivity"/>
         <activity android:label="下拉刷新" android:name=".PullRefreshActivity"/>
+        <activity android:label="AndFix验证" android:name=".AndFixActivity" />
+        <activity android:label="butterKnife" android:name=".AnnotationActivity" />
         <activity
             android:name=".LauncherActivity"
             android:label="^好好学习^"
@@ -31,6 +33,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
         <provider
             android:authorities="cck.com.chello.multisp.provider"
             android:name=".MultiProcessSp"/>
